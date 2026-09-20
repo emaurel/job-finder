@@ -1,0 +1,24 @@
+# --- secrets and personal data: never commit ---
+# NOTE: git does not support trailing comments on a pattern line. Every comment
+# here is on its own line on purpose; an inline one silently breaks the rule.
+.env
+
+# real profile: phone number, tax id, day rate
+profile/profile.yaml
+profile/cv_source.pdf
+
+# the job database
+data/
+
+# screenshots of filled application forms, full of personal data
+output/
+
+# archived n8n workflow, contains a hardcoded API key
+legacy/job_finder_workflow.json
+
+# --- local tooling ---
+.venv/
+__pycache__/
+*.pyc
+.n8n/
+.claude/

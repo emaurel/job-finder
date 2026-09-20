@@ -1,0 +1,97 @@
+# Company ATS boards to watch.
+#
+# WHAT THIS IS: when a company uses Greenhouse, Lever or Ashby to run its
+# hiring, its full job list is readable at a fixed URL with no API key. Each
+# entry below is one company's own careers page. We poll them directly.
+#
+# WHY IT BEATS AN AGGREGATOR: you choose the companies, the listings are
+# current and complete rather than a scraped summary, and the apply path is a
+# real form that `jf ats` can fill in a browser.
+#
+# HOW TO ADD ONE: find any job posting from a company you would work for and
+# look at its URL, or just run:
+#
+#     jf add-company <name-or-url>
+#
+# which detects the platform, checks the board is live, and writes it here.
+#
+#     job-boards.greenhouse.io/SLUG/...  -> greenhouse
+#     jobs.lever.co/SLUG/...             -> lever
+#     jobs.ashbyhq.com/SLUG/...          -> ashby
+#
+# Every slug below was verified live when written. The number in the comment
+# is roughly how many openings that board had at the time.
+
+greenhouse:
+  # --- Nordic ---
+  - truecaller        # Sweden
+  - mentimeter        # Sweden
+  - yubico            # Sweden
+  - cognite           # Norway
+  - relex             # Finland
+  - wolt              # Finland
+  - oura              # Finland
+  # --- EU ---
+  - adyen             # Netherlands
+  - catawiki          # Netherlands
+  - bird              # Netherlands
+  - celonis           # Germany
+  - helsing           # Germany, defence AI
+  - doctolib          # France
+  - dataiku           # France
+  # --- UK / EU-remote ---
+  - wayve             # UK, autonomous driving
+  - monzo             # UK
+  - wise              # UK
+  - polyai            # UK, conversational AI
+  # --- AI labs and big tech ---
+  - anthropic
+  - databricks
+  - scaleai
+  - datadog
+  - elastic
+  - gitlab            # remote-first
+  - figma
+  - vercel
+
+lever:
+  - spotify           # Sweden
+  - qonto             # France
+  - swile             # France
+  - contentsquare     # France
+  - neon              # EU-remote, Postgres
+
+ashby:
+  # --- Nordic ---
+  - legora            # Sweden, legal AI
+  - trustly           # Sweden
+  - iceye             # Finland
+  - pleo              # Denmark
+  - corti             # Denmark, medical AI
+  - lunar             # Denmark
+  - gelato            # Norway
+  # --- EU ---
+  - deepl             # Germany
+  - n8n               # Germany, workflow automation
+  - parloa            # Germany, voice AI
+  - mollie            # Netherlands
+  - miro              # Netherlands
+  - photoroom         # France, AI imaging
+  - alan              # France
+  - weaviate          # Netherlands, vector DB
+  # --- UK ---
+  - synthesia         # UK, AI video
+  - quantexa          # UK
+  # --- AI product companies, remote-friendly ---
+  - openai
+  - perplexity
+  - cursor
+  - harvey
+  - notion
+  - cohere
+  - baseten
+  - modal
+  - clickhouse
+  - supabase
+  - posthog
+  - lovable

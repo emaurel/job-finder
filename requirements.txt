@@ -1,0 +1,10 @@
+anthropic>=1.0.0
+httpx2
+pydantic>=2.0
+pyyaml
+python-dotenv
+pypdf
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart

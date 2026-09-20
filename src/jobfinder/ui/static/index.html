@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Job Finder Ops</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="rail">
+  <section>
+    <div class="brand">JOB FINDER</div>
+    <div class="sub">pipeline operations</div>
+  </section>
+
+  <section>
+    <div class="label">Funnel</div>
+    <div id="funnel" style="margin-top:8px"></div>
+    <div id="bar"><div></div></div>
+  </section>
+
+  <section>
+    <div class="label">Run</div>
+    <div id="controls" style="margin-top:8px">
+      <button data-stage="fetch">1 &nbsp;Fetch sources</button>
+      <button data-stage="score">2 &nbsp;Score vs profile</button>
+      <button data-stage="draft">3 &nbsp;Write letters</button>
+      <button data-stage="reroute">4 &nbsp;Find real apply forms</button>
+      <button data-stage="all" class="go">Run all three</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="label">Sources</div>
+    <div id="sources" style="margin-top:8px"></div>
+  </section>
+
+  <section>
+    <div class="label">Filtered out</div>
+    <div id="reasons" style="margin-top:8px"></div>
+  </section>
+
+  <section>
+    <div class="label">Gates</div>
+    <div id="gates" style="margin-top:8px"></div>
+  </section>
+</div>
+
+<div id="queue">
+  <div id="qhead">
+    <div>
+      <span class="label">Queue</span>
+      <span id="qcount" class="sub"></span>
+    </div>
+    <div id="filters">
+      <button data-f="actionable" class="sel">Needs me</button>
+      <button data-f="all">All</button>
+      <button data-f="sent">Sent</button>
+    </div>
+  </div>
+  <div id="cards"></div>
+</div>
+
+<div id="logpane">
+  <header>
+    <button id="logtoggle" title="Collapse the log">&raquo;</button>
+    <span class="label" id="loglabel">Live log</span>
+    <span id="logstatus"><span id="dot"></span> <span id="conn" class="sub">connecting</span></span>
+  </header>
+  <div id="log"></div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

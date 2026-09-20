@@ -1,0 +1,160 @@
+# EXAMPLE PROFILE - copy this to profile.yaml and fill it in.
+#
+#     cp profile/profile.example.yaml profile/profile.yaml
+#
+# This file is the single source of truth for the whole pipeline: it decides
+# what counts as a good job, how cover letters are written, and what goes into
+# application forms. The real profile.yaml is gitignored because it holds
+# personal data (phone, tax id, rate).
+#
+# The values below are placeholders. The structure and the writing rules are
+# real and worth reading.
+
+# Master profile. Everything in the pipeline matches against this file.
+# Edit it freely - it is the single source of truth for scoring and drafting.
+
+identity:
+  full_name: Your Name
+  headline: AI & Software Engineer
+  positioning: >-
+    Software engineer specialised in AI systems: LLM applications, MCP servers,
+    multi-agent orchestration, and the backend that holds them up.
+  email: you@example.com
+  phone: "+00 0 00 00 00 00"
+  location: Your City, Country
+  nationality: Your nationality
+  links:
+    github: https://github.com/yourhandle
+    portfolio: https://yourhandle.github.io
+    linkedin: https://www.linkedin.com/in/yourprofile/
+    malt: https://www.malt.com/profile/yourprofile
+  languages:
+    - {name: French, level: Native}
+    - {name: English, level: C2 (Cambridge)}
+    - {name: Swedish, level: Beginner, note: 'learning; not working proficiency'}
+
+# --- What counts as a good job. Drives scoring. ---
+preferences:
+  seeking: [freelance_contract, permanent_employment]
+  work_mode: [remote_worldwide, remote_eu, onsite_yourcity, hybrid_yourcity]
+  rate:
+    freelance_day_eur: 000
+    freelance_hour_usd: 00
+    freelance_hour_usd_stretch: 00
+    salary_expectation_note: >-
+      Open on salaried comp; use the posting's range. Flag anything clearly
+      below market for an AI engineer in the EU.
+  availability: Immediate, 40h/week, can sign and start within 24h
+  contract_vehicle: >-
+    Your contracting vehicle, e.g. a registered sole proprietorship. Invoices as
+    a business. No visa or sponsorship needed anywhere in the EU.
+
+  # Hard rules. A job breaking one of these is rejected before it costs a token.
+  hard_filters:
+    max_years_experience_required: 4
+    reject_if_us_only: true
+    reject_onsite_outside: [YourCity]   # the only city you would commute to
+    # List only languages you can actually WORK in. A posting written in a
+    # language you do not speak means a workplace you cannot function in,
+    # unless it says outright that English is the working language.
+    working_languages: [English, French]
+    reject_postings_not_in_working_language: true
+
+  # Soft signals. Move the score, never veto on their own.
+  boost:
+    - LLM / GenAI product work
+    - agentic systems, tool use, MCP
+    - Python or TypeScript backend
+    - Rust
+    - small team, early product, high ownership
+    - scientific or data-heavy domain
+    - EU or Nordic company
+  penalise:
+    - pure data-labelling or annotation work
+    - heavy on-call SRE with no AI component
+    - agency body-shopping with vague client
+    - unpaid equity-only
+    - crypto or gambling
+    - roles demanding a security clearance
+
+# --- Evidence the cover letters and CV variants draw from. ---
+skills:
+  languages: [Python, TypeScript, Rust, C, C++, Dart, JavaScript, OCaml, Haskell]
+  ai: [LLM application design, prompt engineering, MCP (client + server),
+       multi-agent orchestration, Claude Agent SDK, LangChain, Azure OpenAI,
+       TensorFlow, RAG]
+  backend: [FastAPI, WebSockets, REST API design, SQLite, Docker]
+  frontend: [React, TypeScript, Flutter]
+  tooling: [Git, Linux, CI/CD, Playwright]
+
+experience:
+  - company: Most Recent Company
+    role: Your Role
+    period: Jan 2025 - present
+    location: Remote
+    bullets:
+      - What you actually built and what it did. Numbers beat adjectives.
+      - A second concrete thing, ideally with a measurable outcome.
+  - company: Previous Company
+    role: Your Role (internship)
+    period: Jun 2023 - Dec 2023
+    location: City
+    bullets:
+      - One line per real deliverable.
+
+projects:
+  - name: Flagship Project
+    private: true            # true keeps the repo link out of letters
+    summary: >-
+      Two or three sentences on what it does and why it is unusual. This is the
+      text the cover-letter writer draws on, so make it specific: numbers,
+      architecture decisions, constraints you worked under.
+    stack: [Python, FastAPI, PostgreSQL]
+    note_for_letters: >-
+      Optional steer, e.g. "lead with this for backend roles, describe the
+      architecture and never name the client".
+  - name: Public Library
+    private: false
+    url: https://github.com/yourhandle/your-library
+    summary: What it solves and why nothing else did.
+    stack: [TypeScript]
+
+education:
+  # Application forms ask for this constantly, always as a fixed dropdown.
+  highest_degree_completed_or_pursuing: Bachelor's
+  degree_status: completed
+  field_of_study: Computer Science
+
+  schools:
+  - school: Your University
+    title: Your Degree
+    period: 2021 - 2025
+
+# --- Style rules the letter writer must obey. ---
+writing_style:
+  language: match_posting   # write in the language the posting is written in
+  length_words: [180, 260]
+  banned_characters: ["—", "–"]   # stripped mechanically after generation
+  banned_phrases:
+    - "I am writing to express my interest"
+    - "I would be thrilled"
+    - "passionate about leveraging"
+    - "synergy"
+    - "I believe I would be a great fit"
+  rules:
+    - >-
+      Start with a short greeting on its own line, in the language of the
+      posting. Use the hiring manager's name if the posting gives one,
+      otherwise the team or company name, for example "Hello Sticker Mule
+      team," or "Bonjour,".
+    - Then open on the specific thing about this role or company that made it
+      worth applying to. No "I am writing to apply for" throat-clearing.
+    - >-
+      Sign off with one short line before the signature, for example "Best
+      regards," or "Cordialement,". The contact block with name, email, phone
+      and links is appended automatically, so never write it yourself.
+    - Name one concrete project from the profile and what it actually did. Numbers where the profile gives them.
+    - Address the single biggest gap honestly in one clause, never apologetically.
+    - Close with availability and a direct next step.
+    - No bullet lists. Three or four short paragraphs.
+    - Never invent an employer, a date, a metric, or a technology that is not in this file.
